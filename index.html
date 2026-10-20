@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Eventos - Colegio Bolívar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f4f8;
+            color: #1f2937;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 35px;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #123b70;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        #contador {
+            font-size: 70px;
+            font-weight: bold;
+            color: #123b70;
+            margin: 25px 0;
+        }
+
+        button {
+            padding: 14px 24px;
+            margin: 6px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.15s, opacity 0.15s;
+        }
+
+        button:hover {
+            opacity: 0.85;
+            transform: scale(1.03);
+        }
+
+        #botonSumar {
+            background-color: #123b70;
+            color: white;
+        }
+
+        #botonRestar {
+            background-color: #e5e7eb;
+            color: #1f2937;
+        }
+
+        #botonReiniciar {
+            background-color: #b91c1c;
+            color: white;
+        }
+
+        .descripcion {
+            color: #6b7280;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Colegio Bolívar</h1>
+        <h2>Contador de Eventos</h2>
+
+        <p>Registra la asistencia o las interacciones durante los eventos escolares.</p>
+
+        <div id="contador" aria-live="polite">0</div>
+
+        <button id="botonSumar" onclick="incrementar()">
+            + Agregar click
+        </button>
+
+        <button id="botonRestar" onclick="decrementar()">
+            - Restar
+        </button>
+
+        <button id="botonReiniciar" onclick="reiniciar()">
+            Reiniciar
+        </button>
+
+        <p class="descripcion">
+            Cada click registra una interacción.
+        </p>
+    </div>
+
+    <script>
+        let contador = 0;
+
+        function actualizarContador() {
+            document.getElementById("contador").textContent = contador;
+        }
+
+        function incrementar() {
+            contador++;
+            actualizarContador();
+        }
+
+        function decrementar() {
+            if (contador > 0) {
+                contador--;
+                actualizarContador();
+            }
+        }
+
+        function reiniciar() {
+            contador = 0;
+            actualizarContador();
+        }
+    </script>
+
+</body>
+</html>
